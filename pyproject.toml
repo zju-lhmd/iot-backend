@@ -1,7 +1,11 @@
 [project]
 name = "AuthMicroservices"
+version = "0.0.1"
+description = "AuthMicroservices for iot-backend"
 dependencies = [
     "flask",
+    "flask-sqlalchemy",
+    "pymysql"
 ]
 
 [build-system]
