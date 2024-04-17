@@ -4,9 +4,10 @@ version = "0.0.1"
 description = "AuthMicroservices for iot-backend"
 dependencies = [
     "flask",
+    "flask-cors",
     "flask-sqlalchemy",
+    "sqlalchemy",
     "pymysql",
-    "sqlalchemy"
 ]
 
 [build-system]
