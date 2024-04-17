@@ -1,12 +1,14 @@
 from flask import Flask
+from flask_cors import CORS
 
 from .config import config
 
 
-def create_app(config_type='development'):
+def create_app(config_name='development'):
     # 构造Flask实例
     app = Flask(__name__)
-    app.config.from_object(config[config_type])
+    app.config.from_object(config[config_name])
+    CORS(app)
 
     # 绑定数据库
     from .db import db
