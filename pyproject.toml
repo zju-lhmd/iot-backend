@@ -5,7 +5,8 @@ description = "AuthMicroservices for iot-backend"
 dependencies = [
     "flask",
     "flask-sqlalchemy",
-    "pymysql"
+    "pymysql",
+    "sqlalchemy"
 ]
 
 [build-system]
