@@ -42,11 +42,11 @@ def show_info():
     retcode, message, payload = s.infoAccount(username)
 
     if retcode:
-        return jsonify({'state': 1, 'message': ''}), 200
+        return jsonify({'state': 1, 'message': '', 'user': payload}), 200
     elif payload is not None:
-        return jsonify({'state': 0, 'message': message}), 200
+        return jsonify({'state': 0, 'message': message, 'user': {}}), 200
     else:
-        return jsonify({'state': 0, 'message': ''}), 200
+        return jsonify({'state': 0, 'message': '', 'user': {}}), 200
 
 
 @account.route('/updatePassword', methods=('POST',))
