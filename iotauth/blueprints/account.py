@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 
-import AuthMicroservices.db.services as s
+import iotauth.db.service as s
 
 
 account = Blueprint('account', __name__, url_prefix='/api')

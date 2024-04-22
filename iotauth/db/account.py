@@ -1,4 +1,4 @@
-from AuthMicroservices.db import db
+from .db import db
 
 
 class Account(db.Model):

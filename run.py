@@ -1,6 +1,6 @@
 import click
 
-from AuthMicroservices import create_app
+from iotauth import create_app
 
 
 @click.command()

@@ -1,7 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 
-from AuthMicroservices.db import db
-from AuthMicroservices.db.model.Account import Account
+from .db import db
+from .account import Account
 
 
 def addAccount(username, password, email, phone):
