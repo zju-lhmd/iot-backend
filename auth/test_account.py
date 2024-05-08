@@ -6,7 +6,8 @@ from iotauth.db import db
 
 @pytest.fixture(scope='module')
 def app():
-    app = create_app('testing')
+    # app = create_app('local_test')
+    app = create_app('remote_test')
     yield app
     with app.app_context():
         db.drop_all()

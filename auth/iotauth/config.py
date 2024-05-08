@@ -17,15 +17,23 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_ECHO = True
 
 
-class TestingConfig(Config):
+class LocalTestConfig(Config):
     TESTING = True
 
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@127.0.0.1:3306/iot'
     SQLALCHEMY_ECHO = True
 
 
+class RemoteTestConfig(Config):
+    TESTING = True
+
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://wjwang:qwe987@127.0.0.1:3306/iot_backend'
+    SQLALCHEMY_ECHO = True
+
+
 config = {
     'production': ProductionConfig,
     'development': DevelopmentConfig,
-    'testing': TestingConfig,
+    'local_test': LocalTestConfig,
+    'remote_test': RemoteTestConfig,
 }
