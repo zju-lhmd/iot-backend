@@ -25,7 +25,7 @@ def uploadMessage():
 def getMessage():
     device_id = request.json['device_id']
     retcode, message, payload = s.getMessage(device_id)
-     
+    
     if retcode:
         return jsonify({'messages': payload, 'message': message, 'signal': 'success'}), 200
     else:
