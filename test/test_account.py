@@ -1,3 +1,10 @@
+import os
+import sys
+
+cur_dir = os.path.dirname(os.path.abspath(__file__))
+pkg_dir = os.path.join(cur_dir, '../auth')
+sys.path.append(pkg_dir)
+
 import pytest
 
 from iotauth import create_app

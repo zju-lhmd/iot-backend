@@ -1,3 +1,10 @@
+import os
+import sys
+
+cur_dir = os.path.dirname(os.path.abspath(__file__))
+pkg_dir = os.path.join(cur_dir, '../device')
+sys.path.append(pkg_dir)
+
 import pytest
 from datetime import datetime
 from iotdevice import create_app
