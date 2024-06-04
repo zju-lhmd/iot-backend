@@ -4,7 +4,7 @@ class Config:
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://wjwang:qwe987@127.0.0.1:3306/iot_backend'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://iot:iot@127.0.0.1:3306/iot_backend'
     SQLALCHEMY_ECHO = False
 
     CORS_RESOURCES = {r'/api/*': {'origins': '*'}}
@@ -27,7 +27,7 @@ class LocalTestConfig(Config):
 class RemoteTestConfig(Config):
     TESTING = True
 
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://wjwang:qwe987@127.0.0.1:3306/iot_backend'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://iot:iot@127.0.0.1:3306/iot_backend'
     SQLALCHEMY_ECHO = True
 
 
