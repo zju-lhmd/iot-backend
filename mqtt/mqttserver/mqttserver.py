@@ -28,14 +28,14 @@ def on_message(client, userdata, msg):
     
     logger.debug(msg.topic+":"+str(msg.payload.decode()))
     
-    iot_massage_json = json.loads(msg.payload.decode())
-    iot_massage = Message(**iot_massage_json)
+    iot_message_json = json.loads(msg.payload.decode())
+    iot_message = Message(**iot_message_json)
 
     device_id = iot_message.device_id
     last_update_date = iot_message.last_update_date
     device = session.query(Device).filter_by(device_id=device_id).first()
     if device:
-        session.add(iot_massage)
+        session.add(iot_message)
         device.last_update_time = last_update_date
     
     session.commit()
