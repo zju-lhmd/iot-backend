@@ -3,8 +3,7 @@ from sqlalchemy import func
 
 from .db import db
 from .device import Device
-from message.iotmessage.db.service import deleteMessages
-
+from .message import Message
 
 def createDevice(device_name, device_type, creator, online, creation_date, description):
     try:
@@ -34,10 +33,12 @@ def deleteDevice(device_id):
             return False, 'Device not found', None
         
         db.session.delete(device)
-        db.session.commit()
         
         # 将iotmessage表中对应设备的消息也删除
-        deleteMessages(device_id)
+        messages_to_delete = Message.query.filter_by(device_id=device_id)
+        messages_to_delete.delete(synchronize_session='fetch')
+        
+        db.session.commit()
         
         return True, 'Delete successfully', None
         
