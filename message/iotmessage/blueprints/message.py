@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 
 import iotmessage.db.service as s
 
-message = Blueprint('message', __name__, url_prefix='/api')
+message = Blueprint('message', __name__, url_prefix='/api/iotmessage_api')
 
 @message.route('/uploadMessage', methods=('POST',))
 def uploadMessage():

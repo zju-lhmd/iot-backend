@@ -20,6 +20,6 @@ def create_app(config_name='development'):
 
     # 绑定控制器
     from .blueprints import message
-    app.register_blueprint(message, url_prefix='/api')
+    app.register_blueprint(message, url_prefix='/api/iotmessage_api')
 
     return app
