@@ -128,14 +128,14 @@ if __name__ == '__main__':
         latitude = 30.1 + random.random() * 0.4
         """
         {"device_id":"0001",
-        "timestamp":"2023/12/24 19:34:28",
+        "timestamp":"2023-12-24 19:34:28",
         "alert":0,
         "info":"Device Data 2023/12/24 19:32:38",
         "latitude":30.39648098945618,
         "longitude":120.40087410211564,
         "value":43}"""
         message = {"device_id": device_list[index].device_id,
-                   "timestamp": datetime.now(),
+                   "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                    "alert": alert,
                    "info": info,
                    "latitude": latitude,
