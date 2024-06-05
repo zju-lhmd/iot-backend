@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt_client
 import json
-import time
+from datetime import datetime
 from database_connect import *
 import random
 # 当连接成功时的回调函数
@@ -133,10 +133,9 @@ if __name__ == '__main__':
         "info":"Device Data 2023/12/24 19:32:38",
         "latitude":30.39648098945618,
         "longitude":120.40087410211564,
-        "timestamp":1703417558188,
         "value":43}"""
         message = {"device_id": device_list[index].device_id,
-                   "timestamp": int(1000*time.time()),
+                   "timestamp": datetime.now(),
                    "alert": alert,
                    "info": info,
                    "latitude": latitude,
