@@ -54,11 +54,11 @@ def test_uploadMessage(client, message):
     }
     
     # 创建消息
-    response = client.post('/api/uploadMessage', json=create_form)
+    response = client.post('/api/iotmessage_api/uploadMessage', json=create_form)
     assert response.json['signal'] == 'success'
     
     # 重复创建
-    response = client.post('/api/uploadMessage', json=create_form)
+    response = client.post('/api/iotmessage_api/uploadMessage', json=create_form)
     assert response.json['signal'] == 'success'
 
 
@@ -67,5 +67,5 @@ def test_getMessage(client, message):
         'device_id': 1
     }
     
-    response = client.post('/api/getMessage', json=query_form)
+    response = client.post('/api/iotmessage_api/getMessage', json=query_form)
     assert response.json['signal'] == 'success'

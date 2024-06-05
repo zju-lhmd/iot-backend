@@ -52,11 +52,11 @@ def test_createDevice(client, device):
     }
     
     # 创建设备
-    response = client.post('/api/createDevice', json=create_form)
+    response = client.post('/api/device_api/createDevice', json=create_form)
     assert response.json['signal'] == 'success'
     
     # 重复创建（device_name & device_type & creator 重复）
-    response = client.post('/api/createDevice', json=create_form)
+    response = client.post('/api/device_api/createDevice', json=create_form)
     assert response.json['signal'] == 'fail'
 
 
@@ -71,7 +71,7 @@ def test_modifyDevice(client, device):
         'creation_date': device['creation_date'],
         'description': device['description']
     }
-    client.post('/api/createDevice', json=create_form)
+    client.post('/api/device_api/createDevice', json=create_form)
     
     modify_form = {
         'device_id': 1,  # 假设设备 ID 为 1
@@ -82,7 +82,7 @@ def test_modifyDevice(client, device):
         'description': 'my fan'
     }
     
-    response = client.post('/api/modifyDevice', json=modify_form)
+    response = client.post('/api/device_api/modifyDevice', json=modify_form)
     assert response.json['signal'] == 'success'
 
 
@@ -91,7 +91,7 @@ def test_getTypeDevice(client, device):
         'device_type': 'furniture'
     }
     
-    response = client.post('/api/getTypeDevice', json=query_form)
+    response = client.post('/api/device_api/getTypeDevice', json=query_form)
     assert response.json['signal'] == 'success'
 
 
@@ -102,7 +102,7 @@ def test_getDefinedDevice(client, device):
         'device_type': 'furniture',
     }
     
-    response = client.post('/api/getDefinedDevice', json=query_form)
+    response = client.post('/api/device_api/getDefinedDevice', json=query_form)
     assert response.json['signal'] == 'success'
 
 
@@ -116,11 +116,11 @@ def test_deleteDevice(client, device):
         'creation_date': device['creation_date'],
         'description': device['description']
     }
-    client.post('/api/createDevice', json=create_form)
+    client.post('/api/device_api/createDevice', json=create_form)
     
     delete_form = {
         'device_id': 1,  # 假设设备 ID 为 1
     }
     
-    response = client.post('/api/deleteDevice', json=delete_form)
+    response = client.post('/api/device_api/deleteDevice', json=delete_form)
     assert response.json['signal'] == 'success'
