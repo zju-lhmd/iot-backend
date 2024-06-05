@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 
 import iotdevice.db.service as s
 
-device = Blueprint('device', __name__, url_prefix='/api')
+device = Blueprint('device', __name__, url_prefix='/api/device_api')
 
 
 @device.route('/createDevice', methods=('POST',))

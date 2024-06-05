@@ -20,6 +20,6 @@ def create_app(config_name='development'):
 
     # 绑定控制器
     from .blueprints import device
-    app.register_blueprint(device, url_prefix='/api')
+    app.register_blueprint(device, url_prefix='/api/device_api')
 
     return app
