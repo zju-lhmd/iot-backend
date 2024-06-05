@@ -22,4 +22,4 @@ if __name__=="__main__":
         for thread in thread_list:
             thread.join()
     except:
-        print("BS后端关闭成功")
+        print("设备模拟器关闭成功")
