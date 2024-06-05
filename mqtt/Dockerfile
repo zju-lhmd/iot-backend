@@ -3,4 +3,3 @@ FROM eclipse-mosquitto
 
 # 暴露 MQTT 端口
 EXPOSE 1883
-
