@@ -36,7 +36,7 @@ def on_message(client, userdata, msg):
     device = session.query(Device).filter_by(device_id=device_id).first()
     if device:
         session.add(iot_message)
-        device.last_update_time = last_update_date
+        device.last_update_date = last_update_date
     
     session.commit()
 
