@@ -32,7 +32,7 @@ def on_message(client, userdata, msg):
     iot_message = Message(**iot_message_json)
 
     device_id = iot_message.device_id
-    last_update_date = iot_message.last_update_date
+    last_update_date = iot_message.timestamp
     device = session.query(Device).filter_by(device_id=device_id).first()
     if device:
         session.add(iot_message)
