@@ -131,7 +131,7 @@ try:
     print("mysql use port 3306")
 except:
     time.sleep(5)
-    port = "3306"
+    database_url = "mysql+pymysql://iot:iot@127.0.0.1:3306/iot_backend"
     engine = create_engine(database_url, echo=True)
     
     # 检查表的存在性，如果不存在的话会执行表的创建工作
