@@ -109,6 +109,7 @@ def getDefinedDevice(device_id=None, device_name=None, device_type=None):
             device_data = {
                 'device_id': device.device_id,
                 'device_name': device.device_name,
+		'device_type': device.device_type,
                 'creator': device.creator,
                 'online': device.online,
                 'creation_date': device.creation_date,
