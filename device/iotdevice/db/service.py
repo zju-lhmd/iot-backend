@@ -78,6 +78,7 @@ def getTypeDevice(device_type):
             device_data = {
                 'device_id': device.device_id,
                 'device_name': device.device_name,
+		'device_type': device.device_type,
                 'creator': device.creator,
                 'online': device.online,
                 'creation_date': device.creation_date,
