@@ -3,6 +3,7 @@ from sqlalchemy import func
 
 from .db import db
 from .device import Device
+from message.iotmessage.db.service import deleteMessages
 
 
 def createDevice(device_name, device_type, creator, online, creation_date, description):
@@ -34,9 +35,12 @@ def deleteDevice(device_id):
         
         db.session.delete(device)
         db.session.commit()
+        
+        # 将iotmessage表中对应设备的消息也删除
+        deleteMessages(device_id)
+        
         return True, 'Delete successfully', None
-
-        # Todo: 将iotmessage表中对应设备的消息也删除
+        
     except Exception as e:
         db.session.rollback()
         print(e)

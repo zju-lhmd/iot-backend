@@ -49,3 +49,16 @@ def getMessage(device_id):
     except Exception as e:
         print(e)
         return False, str(e), None
+
+
+def deleteMessages(device_id):
+    try:
+        messages_to_delete = Message.query.filter_by(device_id=device_id)
+        messages_to_delete.delete(synchronize_session='fetch')
+        db.session.commit()
+        
+        return True, 'DeleteMessages successfully', None  
+    
+    except Exception as e:
+        print(e)
+        return False, str(e), None
