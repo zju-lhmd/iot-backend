@@ -25,10 +25,19 @@ def on_connect(client, userdata, flags, rc):
 # 当收到消息时的回调函数
 def on_message(client, userdata, msg):
     session = Session()
+    
     logger.debug(msg.topic+":"+str(msg.payload.decode()))
+    
     iot_massage_json = json.loads(msg.payload.decode())
     iot_massage = Message(**iot_massage_json)
-    session.add(iot_massage)
+
+    device_id = iot_message.device_id
+    last_update_date = iot_message.last_update_date
+    device = session.query(Device).filter_by(device_id=device_id).first()
+    if device:
+        session.add(iot_massage)
+        device.last_update_time = last_update_date
+    
     session.commit()
 
 
